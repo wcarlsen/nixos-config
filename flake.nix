@@ -20,8 +20,6 @@
         system = "x86_64-linux";
         specialArgs = {
           hostName = "nixos-t480";
-          luksSwapName = "luks-ef2ad09c-28f3-4a3a-bc7c-befb427813dc";
-          luksNixosName = "luks-bedfe9b4-21ef-485d-bd21-c5a049e0cdaa";
         };
         modules = [
           ./configuration.nix
@@ -38,8 +36,6 @@
         system = "x86_64-linux";
         specialArgs = {
           hostName = "nixos-x11";
-          luksSwapName = "luks-ef2ad09c-28f3-4a3a-bc7c-befb427813dc";
-          luksNixosName = "luks-bedfe9b4-21ef-485d-bd21-c5a049e0cdaa";
         };
         modules = [
           ./configuration.nix

@@ -22,8 +22,8 @@
   };
 
   # Enable swap on luks
-  boot.initrd.luks.devices.luksSwapName.device = "/dev/nvme0n1p3";
-  boot.initrd.luks.devices.luksSwapName.keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices.cryptswap.device = "/dev/nvme0n1p3";
+  boot.initrd.luks.devices.cryptswap.keyFile = "/crypto_keyfile.bin";
 
   networking.hostName = hostName; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

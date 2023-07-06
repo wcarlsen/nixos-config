@@ -18,7 +18,7 @@
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices.luksNixosName.device = "/dev/nvme0n1p2";
+  boot.initrd.luks.devices.cryptnixos.device = "/dev/nvme0n1p2";
 
   fileSystems."/boot/efi" =
     { device = "/dev/disk/by-label/boot";
