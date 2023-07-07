@@ -32,7 +32,7 @@
           }
         ];
       };
-      nixos-x11 = nixpkgs.lib.nixosSystem {
+      nixos-x1 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           hostName = "nixos-x1";
