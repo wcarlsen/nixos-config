@@ -35,7 +35,7 @@
       nixos-x11 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-          hostName = "nixos-x11";
+          hostName = "nixos-x1";
         };
         modules = [
           ./configuration.nix
