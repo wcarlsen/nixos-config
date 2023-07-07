@@ -39,7 +39,7 @@
         };
         modules = [
           ./configuration.nix
-          nixos-hardware.nixosModules.lenovo-thinkpad-x11
+          nixos-hardware.nixosModules.lenovo-thinkpad-x1
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
