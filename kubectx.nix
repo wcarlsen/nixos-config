@@ -4,7 +4,7 @@ with lib;
 
 stdenv.mkDerivation rec {
   pname = "kubectx";
-  version = "0.9.4";
+  version = "0.9.5";
 
   src = fetchFromGitHub {
     owner = "ahmetb";
