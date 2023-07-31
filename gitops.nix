@@ -8,7 +8,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://github.com/weaveworks/weave-gitops/releases/download/v${version}/gitops-linux-x86_64.tar.gz";
-    sha256 = "sha256-M8reUfAZ5lKxzEEvmMOXKIKy4KigWmvDNejYYnfub9A=";
+    sha256 = "sha256-X/1h6gW0yO1o/J36rrbTsNw9pzIwsXRe4BQXmNEnn9o=";
   };
 
   sourceRoot = ".";
