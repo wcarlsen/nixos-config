@@ -28,6 +28,7 @@
         kx = "kubectx";
         szsh = "source ~/.zshrc";
         cat = "bat -p";
+        awsvault = "unset AWS_VAULT && aws-vault exec $(aws-vault list --profiles | fzf) --duration=1h";
       };
       oh-my-zsh = {
         enable = true;
@@ -130,7 +131,6 @@
       golang.go
       catppuccin.catppuccin-vsc
       github.vscode-github-actions
-      bierner.markdown-mermaid
     ];
     userSettings = {
       security.workspace.trust.enabled = false;
@@ -245,6 +245,7 @@
     mpv
     e2fsprogs
     tldr
+    trayscale
   ];
 
   # Auto upgrade
