@@ -21,8 +21,7 @@
       shellAliases = {
         l = "exa --long --header --group-directories-first --git -a --icons";
         groot = "cd $(git rev-parse --show-toplevel)";
-        hms = "nix-channel --update && home-manager switch";
-        nrs = "sudo nixos-rebuild switch --upgrade";
+        nrs = "nix flake update && sudo nixos-rebuild switch --flake .#";
         ghprc = "gh pr create --fill";
         k = "kubectl";
         kx = "kubectx";
@@ -60,6 +59,10 @@
     enable = true;
   };
 
+  # programs.gh-dash = {
+  #   enable = true;
+  # };
+
   # Tmux
   programs.tmux = {
     enable = true;
@@ -89,19 +92,10 @@
     ];
   };
 
-  # Zellij
-  programs.zellij = {
-    enable = true;
-    settings = {
-      theme = "catppuccin-mocha";
-      scroll_buffer_size = 50000;
-    };
-  };
-
-  xdg.configFile."zellij/themes/catppuccin.kdl".text = builtins.readFile (pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/catppuccin/zellij/80e4d2e6394c5a323c5f42d908e1d3d19c558834/catppuccin.kdl";
-    sha256 = "sha256-sOWuECFl5yhAje7bmZAZVa2ejsGHGGPa000P4dd8sTY=";
-  });
+  # Urlview
+  home.file.".urlview".text = ''
+    COMMAND xdg-open
+  '';
 
   # Kitty
   programs.kitty = {
@@ -113,7 +107,7 @@
     font = {
       package = null;
       name = "FantasqueSansMono Nerd Font Mono";
-      size = 12;
+      size = 13;
     };
   };
 
@@ -131,6 +125,8 @@
       golang.go
       catppuccin.catppuccin-vsc
       github.vscode-github-actions
+      bierner.markdown-mermaid
+      streetsidesoftware.code-spell-checker
     ];
     userSettings = {
       security.workspace.trust.enabled = false;
@@ -142,11 +138,11 @@
         renderWhitespace = "boundary";
         wordWrap = "on";
         fontFamily = "'FantasqueSansMono Nerd Font Mono'";
-        fontSize = 16;
+        fontSize = 18;
       };
       terminal.integrated = {
         fontFamily = "'FantasqueSansMono Nerd Font Mono'";
-        fontSize = 16;
+        fontSize = 18;
       };
       files.trimTrailingWhitespace = true;
       "[terraform]".editor.tabSize = 2;
@@ -170,6 +166,7 @@
       theme = "catppuccin_mocha";
       editor = {
         cursorline = true;
+        soft-wrap.enable = true;
         completion-trigger-len = 0;
         whitespace.render.tab = "all";
         cursor-shape.insert = "bar";
@@ -185,11 +182,6 @@
       ];
     };
   };
-
-  # Urlview
-  home.file.".urlview".text = ''
-    COMMAND xdg-open
-  '';
 
   # Tfswitch
   home.file.".tfswitch.toml".text = ''
@@ -246,6 +238,8 @@
     e2fsprogs
     tldr
     trayscale
+    tig
+    lutris
   ];
 
   # Auto upgrade

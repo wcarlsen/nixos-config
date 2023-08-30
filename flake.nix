@@ -14,7 +14,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager }: {
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }: {
     nixosConfigurations = {
       nixos-t480 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
