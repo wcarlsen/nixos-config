@@ -202,6 +202,7 @@
     fluxcd
     argo
     kubent
+    kubie
     rnix-lsp
     nil
     nixpkgs-fmt
