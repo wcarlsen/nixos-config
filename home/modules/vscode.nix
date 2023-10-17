@@ -5,16 +5,15 @@
     enable = true;
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = false;
-    mutableExtensionsDir = true;
+    mutableExtensionsDir = false;
     extensions = with pkgs.vscode-extensions; [
       alefragnani.project-manager
       bbenoist.nix
-      jnoortheen.nix-ide
-      hashicorp.terraform
-      golang.go
+      bierner.markdown-mermaid
       catppuccin.catppuccin-vsc
       github.vscode-github-actions
-      bierner.markdown-mermaid
+      jnoortheen.nix-ide
+      ms-python.python
       streetsidesoftware.code-spell-checker
     ];
     userSettings = {

@@ -12,14 +12,7 @@ buildGoModule rec {
     ref = "main";
   };
 
-  # src = fetchFromGitHub {
-  #   owner = "recoord";
-  #   repo = pname;
-  #   rev = "v${version}";
-  #   sha256 = "sha256-HsgmbBM02IDjqhBVDvMiXIWqd/nrAKOp+Je7LFhzEJk=";
-  # };
-
-  vendorHash = "sha256-Gjw1dRrgM8D3G7v6WIM2+50r4HmTXvx0Xxme2fH9TlQ=";
+  vendorHash = "sha256-gt6BSQsPdrJgYu43JSgyqbaCa39ApMjEI4d1kmIhM2k=";
 
   meta = {
     description = "Veo-cli";

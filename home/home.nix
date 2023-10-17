@@ -1,7 +1,5 @@
-{ config, pkgs, unstable, system, ... }:
-let
-  pkgsUnstable = import unstable { inherit system; };
-in
+{ config, pkgs, ... }:
+
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -55,16 +53,14 @@ in
     bat
     kooha
     mpv
-    e2fsprogs
+    # e2fsprogs
     tldr
-    trayscale
+    # trayscale
     tig
     lutris
     borgbackup
-    # (callPackage ./derivations/veo-cli.nix { })
-  ] ++ (with pkgsUnstable; [
-    granted
-  ]); 
+    (callPackage ./derivations/veo-cli.nix { })
+  ]; 
 
   # Auto upgrade
   services.home-manager.autoUpgrade = {

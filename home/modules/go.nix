@@ -5,4 +5,11 @@
     go
     goreleaser
   ];
+
+  # Vscode
+  programs.vscode = {
+    extensions = with pkgs.vscode-extensions; [
+      golang.go
+    ];
+  };
 }
