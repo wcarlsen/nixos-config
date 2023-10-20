@@ -59,6 +59,9 @@
     tig
     lutris
     borgbackup
+    nodePackages.bash-language-server
+    nodePackages.dockerfile-language-server-nodejs
+    marksman
     (callPackage ./derivations/veo-cli.nix { })
   ]; 
 

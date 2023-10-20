@@ -13,5 +13,6 @@
     argo
     kubent
     kubie
+    nodePackages.yaml-language-server
   ];
 }
