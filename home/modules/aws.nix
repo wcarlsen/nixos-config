@@ -13,7 +13,7 @@ in
   programs.zsh = {
     sessionVariables = {
       GRANTED_ALIAS_CONFIGURED = "true";
-      GRANTED_ENABLE_AUTO_REASSUME=true;
+      GRANTED_ENABLE_AUTO_REASSUME = "true";
     };
     envExtra = ''
       alias assume="source ${unstablePkgs.granted}/bin/.assume-wrapped"
