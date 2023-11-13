@@ -13,6 +13,7 @@
     argo
     kubent
     kubie
+    cmctl
     nodePackages.yaml-language-server
   ];
 }

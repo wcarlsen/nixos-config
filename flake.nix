@@ -11,21 +11,18 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # emacs-overlay.url = "github:nix-community/emacs-overlay";
-    # nixvim = {
-    #   url = "github:nix-community/nixvim";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    org-babel.url = "github:emacs-twist/org-babel";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, unstable, ... }:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, unstable, emacs-overlay, org-babel, ... }:
     let
       system = "x86_64-linux";
       hm = {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.wcarlsen = import ./home/home.nix;
-        home-manager.extraSpecialArgs = { inherit unstable system; };
+        home-manager.extraSpecialArgs = { inherit unstable system emacs-overlay org-babel; };
       };
     in
     {

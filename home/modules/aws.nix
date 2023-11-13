@@ -11,12 +11,15 @@ in
   ];
 
   programs.zsh = {
+    initExtra = ''
+      function assume() {
+        export GRANTED_ALIAS_CONFIGURED='true'
+        source ${unstablePkgs.granted}/bin/.assume-wrapped "$@"
+        unset GRANTED_ALIAS_CONFIGURED
+      }
+    '';
     sessionVariables = {
-      GRANTED_ALIAS_CONFIGURED = "true";
       GRANTED_ENABLE_AUTO_REASSUME = "true";
     };
-    envExtra = ''
-      alias assume="source ${unstablePkgs.granted}/bin/.assume-wrapped"
-    '';
   };
 }

@@ -22,7 +22,7 @@
       };
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "autojump" "thefuck" "terraform" "kubectl" "aws" "direnv" ];
+        plugins = [ "git" "thefuck" "terraform" "kubectl" "aws" "direnv" ];
       };
     };
     starship.enable = true;

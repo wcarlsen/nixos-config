@@ -7,7 +7,7 @@
     };
     font = {
       package = null;
-      name = "FantasqueSansMono Nerd Font Mono";
+      name = "FantasqueSansM Nerd Font Mono";
       size = 13;
     };
   };

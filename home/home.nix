@@ -7,7 +7,9 @@
   home.homeDirectory = "/home/wcarlsen";
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [];
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "electron-24.8.6"
+  # ];
 
   imports = [
     ./modules/aws.nix
@@ -15,22 +17,25 @@
     ./modules/zsh.nix
     ./modules/git.nix
     ./modules/zellij.nix
+    ./modules/tmux.nix
     ./modules/vscode.nix
     ./modules/kitty.nix
     ./modules/helix.nix
     ./modules/terraform.nix
     ./modules/go.nix
+    ./modules/emacs
+    ./modules/zoxide.nix
   ];
 
   # Editor
-  home.sessionVariables = { EDITOR = "hx"; };
+  home.sessionVariables = { EDITOR = "emacs"; };
 
   home.packages = with pkgs; [
+    gnumake
     rnix-lsp
     nil
     nixpkgs-fmt
     thefuck
-    autojump
     exa
     silver-searcher
     bind
@@ -62,8 +67,10 @@
     nodePackages.bash-language-server
     nodePackages.dockerfile-language-server-nodejs
     marksman
+    hey
+    jq
     (callPackage ./derivations/veo-cli.nix { })
-  ]; 
+  ];
 
   # Auto upgrade
   services.home-manager.autoUpgrade = {

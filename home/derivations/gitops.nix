@@ -4,11 +4,11 @@ with lib;
 
 stdenv.mkDerivation rec {
   pname = "gitops";
-  version = "0.32.0";
+  version = "0.35.0";
 
   src = fetchurl {
     url = "https://github.com/weaveworks/weave-gitops/releases/download/v${version}/gitops-linux-x86_64.tar.gz";
-    sha256 = "sha256-ourC+fOY63uLPiPMd9e+jWOmQGC9IR+1KVJKRy02YQ8=";
+    sha256 = "sha256-fPgwZRoERaXvJOtcO+QgdeolpyXmbvebjpikQN3Ihyk=";
   };
 
   sourceRoot = ".";

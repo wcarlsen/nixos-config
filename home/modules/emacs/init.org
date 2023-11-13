@@ -1,0 +1,199 @@
+#+TITLE: Emacs config
+#+AUTHOR: wcarlsen
+#+PROPERTY: header-args:emacs-lisp :results silent
+
+* Font
+
+Set font and font size.
+
+#+begin_src emacs-lisp
+  (set-face-attribute 'default nil :height 130)
+  (set-frame-font "FantasqueSansM Nerd Font Mono" nil t)
+#+end_src
+
+* Menu bar
+
+Disable menu bar.
+
+#+begin_src emacs-lisp
+  (menu-bar-mode -1)
+#+end_src
+
+* Scrollbar
+
+#+begin_src emacs-lisp
+  (scroll-bar-mode -1)
+#+end_src
+
+* Toolbar
+
+#+begin_src emacs-lisp
+  (tool-bar-mode -1)
+#+end_src
+
+* Sound
+
+Disble ring bell and indicator.
+
+#+begin_src emacs-lisp
+  (setq ring-bell-function 'ignore)
+#+end_src
+
+* Backup and swap files
+
+#+begin_src emacs-lisp
+  (setq make-backup-files nil
+    auto-save-default nil)
+#+end_src
+
+* Word wrap
+
+#+begin_src emacs-lisp
+  (global-visual-line-mode t)
+#+end_src
+
+* Org
+
+** Org-bullets
+
+Prettier org bullets.
+
+#+begin_src emacs-lisp
+  (use-package org-bullets
+    :config (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+#+end_src
+
+* Theme
+
+#+begin_src emacs-lisp
+  (use-package catppuccin-theme
+    :custom (catppuccin-flavor 'mocha)
+    :init
+    (load-theme 'catppuccin t)
+    (catppuccin-reload))
+#+end_src
+
+* Rainbow-delimiters
+
+#+begin_src emacs-lisp
+  (use-package rainbow-delimiters
+    :config
+    (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+#+end_src
+
+* Indent-guide
+
+Show indentation guides.
+
+#+begin_src emacs-lisp
+  (use-package indent-guide
+    :config
+    (add-hook 'prog-mode-hook #'indent-guide-mode))
+#+end_src
+
+* Beacon
+
+Never lose your cursor.
+
+#+begin_src emacs-lisp
+  (use-package beacon
+    :config
+    (beacon-mode 1))
+#+end_src
+
+* Line highlight
+
+Highlight current line.
+
+#+begin_src emacs-lisp
+  (global-hl-line-mode t)
+  (dolist (mode '(vterm-mode-hook))
+    (add-hook mode (lambda () (global-hl-line-mode nil))))
+#+end_src
+
+* Project management
+
+** Projectile
+
+Navigate and switch projects.
+
+#+begin_src emacs-lisp
+  (use-package projectile
+    :config
+    (projectile-mode +1)
+    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+    (setq projectile-project-search-path '("~/spaghetti/"))
+    (projectile-discover-projects-in-search-path))
+#+end_src
+
+* Which-key
+
+Show keybindings.
+
+#+begin_src emacs-lisp
+  (use-package which-key
+    :config
+    (which-key-mode))
+#+end_src
+
+* Git
+
+** Magit
+
+Interacts with git.
+
+#+begin_src emacs-lisp
+  (use-package magit)
+#+end_src
+
+** Diff-hl
+
+Highlight uncommitted changes.
+
+#+begin_src emacs-lisp
+  (use-package diff-hl
+    :config
+    (global-diff-hl-mode))
+#+end_src
+
+* Terminal
+
+** Vterm
+
+Fully fledge terminal emulator.
+
+#+begin_src emacs-lisp
+  (use-package vterm)
+#+end_src
+
+* Nix
+
+** Nix-mode
+
+Nix major mode.
+
+#+begin_src emacs-lisp
+  (use-package nix-mode
+    :mode "\\.nix\\'")
+#+end_src
+
+* Smartparens
+
+Auto pair parens.
+
+#+begin_src emacs-lisp
+  (use-package smartparens
+    :config
+    (require 'smartparens-config)
+    (smartparens-global-mode))
+#+end_src
+
+* Exec-path-from-shell
+
+Ensure Emacs same path from shell.
+
+#+begin_src emacs-lisp
+  (use-package exec-path-from-shell
+    :config
+    (exec-path-from-shell-initialize))
+#+end_src
