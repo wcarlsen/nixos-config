@@ -5,7 +5,6 @@ let
     languages = [ "emacs-lisp" ];
   };
 in {
-
   home.packages = with pkgsEmacs; [
     (emacsWithPackagesFromUsePackage {
       package = pkgs.emacs;

@@ -4,7 +4,7 @@ with lib;
 
 buildGoModule rec {
   pname = "veo-cli";
-  version = "0.2.0";
+  version = "0.3.1";
 
   src = builtins.fetchGit {
     url = "git@github.com:recoord/veo-cli.git";

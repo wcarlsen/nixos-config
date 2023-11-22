@@ -2,10 +2,11 @@
 
 {
   home.packages = with pkgs; [
-        terraform-ls
-      tflint
-      terraform-docs
-      tfswitch
+    terraform-ls
+    tflint
+    tfsec
+    terraform-docs
+    tfswitch
   ];
 
   # Tfswitch

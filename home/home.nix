@@ -23,12 +23,12 @@
     ./modules/helix.nix
     ./modules/terraform.nix
     ./modules/go.nix
-    ./modules/emacs
+    # ./modules/emacs
     ./modules/zoxide.nix
   ];
 
   # Editor
-  home.sessionVariables = { EDITOR = "emacs"; };
+  home.sessionVariables = { EDITOR = "hx"; };
 
   home.packages = with pkgs; [
     gnumake
