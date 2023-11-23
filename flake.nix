@@ -11,8 +11,8 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
-    org-babel.url = "github:emacs-twist/org-babel";
+    # emacs-overlay.url = "github:nix-community/emacs-overlay";
+    # org-babel.url = "github:emacs-twist/org-babel";
   };
 
   outputs = { self, nixpkgs, nixos-hardware, home-manager, unstable, emacs-overlay, org-babel, ... }:
