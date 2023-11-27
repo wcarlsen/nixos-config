@@ -15,14 +15,14 @@
     # org-babel.url = "github:emacs-twist/org-babel";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, unstable, emacs-overlay, org-babel, ... }:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, unstable, ... }:
     let
       system = "x86_64-linux";
       hm = {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.wcarlsen = import ./home/home.nix;
-        home-manager.extraSpecialArgs = { inherit unstable system emacs-overlay org-babel; };
+        home-manager.extraSpecialArgs = { inherit unstable system; };
       };
     in
     {

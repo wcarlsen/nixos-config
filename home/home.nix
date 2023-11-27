@@ -69,6 +69,7 @@
     marksman
     hey
     jq
+    nodejs
     (callPackage ./derivations/veo-cli.nix { })
   ];
 
