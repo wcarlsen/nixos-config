@@ -8,7 +8,7 @@ buildGoModule rec {
 
   src = builtins.fetchGit {
     url = "git@github.com:recoord/veo-cli.git";
-    rev = "07f7b65071f9a41762d4334701d0eea198ae017b";
+    rev = "a11f306ce883d1623ddd50ea318002018fad331b";
     ref = "main";
   };
 

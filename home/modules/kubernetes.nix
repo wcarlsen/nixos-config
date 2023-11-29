@@ -1,10 +1,12 @@
-{pkgs, ... }:
+{pkgs, unstable, system, ... }:
+let
+  pkgsUnstable = import unstable {inherit system; };
+in
 
 {
   home.packages = with pkgs; [
     kubectl
     (callPackage ./../derivations/kubectx.nix { }) # once feature parity is meet use regular kubectx
-    (callPackage ./../derivations/gitops.nix { })
     k9s
     kubernetes-helm
     kustomize
@@ -15,5 +17,7 @@
     kubie
     cmctl
     nodePackages.yaml-language-server
-  ];
+  ] ++ (with pkgsUnstable; [ 
+    weave-gitops
+  ]);
 }
