@@ -36,7 +36,7 @@
     nil
     nixpkgs-fmt
     thefuck
-    exa
+    eza
     silver-searcher
     bind
     bat
