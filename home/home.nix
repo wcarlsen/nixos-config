@@ -63,6 +63,7 @@
     # trayscale
     tig
     lutris
+    wineWowPackages.stable
     borgbackup
     nodePackages.bash-language-server
     nodePackages.dockerfile-language-server-nodejs
