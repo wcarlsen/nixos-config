@@ -13,7 +13,7 @@
       set-option -sa terminal-overrides ",xterm*:Tc"
 
       # Renumber windows
-      # set -g renumber-windows on
+      set -g renumber-windows on
 
       # Disable window renaming
       set-option -g allow-rename off
@@ -35,6 +35,8 @@
       catppuccin
       yank
       urlview
+      tmux-fzf
+      jump
     ];
   };
 
