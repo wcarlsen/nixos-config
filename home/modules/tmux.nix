@@ -12,6 +12,9 @@
       # Fix terminal colors
       set-option -sa terminal-overrides ",xterm*:Tc"
 
+      # Renumber windows
+      # set -g renumber-windows on
+
       # Disable window renaming
       set-option -g allow-rename off
 
