@@ -35,7 +35,6 @@
           modules = [
             ./system/t480/configuration.nix
             nixos-hardware.nixosModules.lenovo-thinkpad-t480
-            # nixos-hardware.nixosModules.common-gpu-nvidia
             home-manager.nixosModules.home-manager
             hm
           ];
