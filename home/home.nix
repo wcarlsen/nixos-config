@@ -71,6 +71,7 @@
     hey
     jq
     nodejs
+    ipcalc
     (callPackage ./derivations/veo-cli.nix { })
   ];
 

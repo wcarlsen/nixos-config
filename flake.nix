@@ -33,8 +33,9 @@
             hostName = "nixos-t480";
           };
           modules = [
-            ./configuration.nix
+            ./system/t480/configuration.nix
             nixos-hardware.nixosModules.lenovo-thinkpad-t480
+            # nixos-hardware.nixosModules.common-gpu-nvidia
             home-manager.nixosModules.home-manager
             hm
           ];
@@ -45,8 +46,8 @@
             hostName = "nixos-x1";
           };
           modules = [
-            ./configuration.nix
-            nixos-hardware.nixosModules.lenovo-thinkpad-x1
+            ./system/x1/configuration.nix
+            nixos-hardware.nixosModules.lenovo-thinkpad-x1-9th-gen
             home-manager.nixosModules.home-manager
             hm
           ];

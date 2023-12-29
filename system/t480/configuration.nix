@@ -186,6 +186,9 @@
   # Home-manager requirement
   nix.settings.allowed-users = [ "wcarlsen" ];
 
+  # Remote host requirement
+  nix.settings.trusted-users = [ "root" "wcarlsen"];
+
   # Flakes
   nix.package = pkgs.nixFlakes;
   nix.extraOptions = ''
@@ -217,7 +220,7 @@
   services.avahi.openFirewall = true;
 
   # Nvidia
-  # Enable OpenGL
+  Enable OpenGL
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -251,7 +254,7 @@
   };
 
   hardware.nvidia.prime = {
-    sync.enable = true;
+    # sync.enable = true;
     # Make sure to use the correct Bus ID values for your system!
     intelBusId = "PCI:0:2:0";
     nvidiaBusId = "PCI:1:0:0";
