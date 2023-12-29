@@ -220,7 +220,7 @@
   services.avahi.openFirewall = true;
 
   # Nvidia
-  Enable OpenGL
+  # Enable OpenGL
   hardware.opengl = {
     enable = true;
     driSupport = true;
