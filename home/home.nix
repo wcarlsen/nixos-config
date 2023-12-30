@@ -72,7 +72,7 @@
     jq
     nodejs
     ipcalc
-    (callPackage ./derivations/veo-cli.nix { })
+    # (callPackage ./derivations/veo-cli.nix { })
   ];
 
   # Auto upgrade
