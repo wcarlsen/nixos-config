@@ -57,7 +57,7 @@
             hostName = "nixos-surface";
           };
           modules = [
-            ./system/x1/configuration.nix
+            ./system/surface/configuration.nix
             nixos-hardware.nixosModules.microsoft-surface-pro-intel
             home-manager.nixosModules.home-manager
             hm
