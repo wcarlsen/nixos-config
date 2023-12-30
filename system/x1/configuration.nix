@@ -92,13 +92,11 @@
     description = "Willi Carlsen";
     extraGroups = [ "networkmanager" "wheel" "audio" "docker" ];
     shell = pkgs.zsh;
-    # packages = with pkgs; [ ];
-    # openssh.authorizedKeys.keys = [];
+    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOJn7aTBU9hsXkosJGReUiy9jVwAOHL2wtFHUVRpunn9 carlsenwilli@gmail.com" ];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
 
   # Allow insecure packages
   nixpkgs.config.permittedInsecurePackages = [

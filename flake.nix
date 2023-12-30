@@ -51,6 +51,18 @@
             hm
           ];
         };
+        nixos-surface = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit system;
+            hostName = "nixos-surface";
+          };
+          modules = [
+            ./system/x1/configuration.nix
+            nixos-hardware.nixosModules.microsoft-surface-pro-intel
+            home-manager.nixosModules.home-manager
+            hm
+          ];
+        };
       };
     };
 }
