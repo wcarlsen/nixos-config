@@ -112,6 +112,10 @@
     tailscale
   ];
 
+  environment.sessionVariables = {
+    MOZ_USE_XINPUT2 = "1";
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
