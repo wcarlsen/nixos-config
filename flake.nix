@@ -35,6 +35,8 @@
           modules = [
             ./system/t480/configuration.nix
             nixos-hardware.nixosModules.lenovo-thinkpad-t480
+            nixos-hardware.nixosModules.common-gpu-nvidia
+            nixos-hardware.nixosModules.common-pc-laptop
             home-manager.nixosModules.home-manager
             hm
           ];
@@ -47,6 +49,7 @@
           modules = [
             ./system/x1/configuration.nix
             nixos-hardware.nixosModules.lenovo-thinkpad-x1-9th-gen
+            nixos-hardware.nixosModules.common-pc-laptop
             home-manager.nixosModules.home-manager
             hm
           ];
@@ -59,6 +62,7 @@
           modules = [
             ./system/surface/configuration.nix
             nixos-hardware.nixosModules.microsoft-surface-pro-intel
+            nixos-hardware.nixosModules.common-pc-laptop
             home-manager.nixosModules.home-manager
             hm
           ];
