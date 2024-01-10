@@ -4,6 +4,7 @@ let
 in
 {
   home.packages = with pkgs; [
+    (callPackage ./../derivations/ec2-instance-selector.nix { })
     awscli2
     aws-vault
   ] ++ [

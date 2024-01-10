@@ -28,7 +28,10 @@
   ];
 
   # Editor
-  home.sessionVariables = { EDITOR = "hx"; };
+  home.sessionVariables = {
+    EDITOR = "hx";
+    NNN_USE_EDITOR = 1;
+  };
 
   home.packages = with pkgs; [
     gnumake
