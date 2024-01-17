@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, hostName, ... }:
+{ config, pkgs, hostName, ssh-keys, ... }:
 
 {
   imports =
@@ -92,7 +92,7 @@
     description = "Willi Carlsen";
     extraGroups = [ "networkmanager" "wheel" "audio" "docker" ];
     shell = pkgs.zsh;
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOJn7aTBU9hsXkosJGReUiy9jVwAOHL2wtFHUVRpunn9 carlsenwilli@gmail.com" ];
+    openssh.authorizedKeys.keyFiles = [ ssh-keys.outPath ];
     # packages = with pkgs; [ ];
   };
 
@@ -133,20 +133,6 @@
       PasswordAuthentication = false;
       PermitRootLogin = "yes";
     };
-    knownHosts = {
-      "github-rsa" = {
-        hostNames = [ "github.com" ];
-        publicKey = "rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk=";
-      };
-      "github-ed25519" = {
-        hostNames = [ "github.com" ];
-        publicKey = "ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
-      };
-      "github-ecdsa-sha2-nistp256" = {
-        hostNames = [ "github.com" ];
-        publicKey = "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=";
-      };
-    };
   };
 
   # Open ports in the firewall.
@@ -180,6 +166,10 @@
 
   # Remote host requirement
   nix.settings.trusted-users = [ "root" "wcarlsen"];
+
+  # Nix binary cache
+  nix.settings.substituters = [ "https://cache.nixos.org/" "https://nix-community.cachix.org"];
+  nix.settings.trusted-public-keys = [ "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" ];
 
   # Flakes
   nix.package = pkgs.nixFlakes;

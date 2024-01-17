@@ -25,6 +25,7 @@
     ./modules/go.nix
     # ./modules/emacs
     ./modules/zoxide.nix
+    ./modules/neovim.nix
   ];
 
   # Editor

@@ -16,6 +16,14 @@
       ms-python.python
       streetsidesoftware.code-spell-checker
     ];
+    #  ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+    #  {
+    #      name = "codeium";
+    #      publisher = "Codeium";
+    #      version = "1.6.16";
+    #      sha256 = "sha256-vrESXa2Z/GLbRwiZxbYZ2MY6isUXCYFiTTRrk6hKH90=";
+    #  }
+    # ];
     userSettings = {
       security.workspace.trust.enabled = false;
       workbench = {

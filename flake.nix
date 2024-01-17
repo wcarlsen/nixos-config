@@ -7,29 +7,35 @@
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/master";
     };
+    ssh-keys = {
+      url = "https://github.com/wcarlsen.keys";
+      flake = false;
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
-    org-babel.url = "github:emacs-twist/org-babel";
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-23.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, unstable, emacs-overlay, org-babel, ... }:
+  outputs = { self, nixpkgs, nixos-hardware, ssh-keys, home-manager, unstable, nixvim, ... }:
     let
       system = "x86_64-linux";
       hm = {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.wcarlsen = import ./home/home.nix;
-        home-manager.extraSpecialArgs = { inherit unstable system emacs-overlay org-babel; };
+        home-manager.extraSpecialArgs = { inherit unstable system nixvim; };
       };
     in
     {
       nixosConfigurations = {
         nixos-t480 = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit system;
+            inherit system ssh-keys;
             hostName = "nixos-t480";
           };
           modules = [
@@ -43,7 +49,7 @@
         };
         nixos-x1 = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit system;
+            inherit system ssh-keys;
             hostName = "nixos-x1";
           };
           modules = [
@@ -56,7 +62,7 @@
         };
         nixos-surface = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit system;
+            inherit system ssh-keys;
             hostName = "nixos-surface";
           };
           modules = [
